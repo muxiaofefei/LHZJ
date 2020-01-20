@@ -13,9 +13,13 @@ $filedata = $_FILES['file'];
 $kid = $_GET['kid']; 
 // 获取前端备注信息
 $notice = $_POST['notice'];
-if(empty($notice)){
+if(empty($notice) && !empty($filedata['name'][0])){
   $notice = $filedata['name'][0];
+}else{
+  echo "<script>alert('读取不到相关文件！！！');window.history.go(-1);</script>";
+  die;
 }
+
 // 统计上传文件的个数
 $filecount = count($filedata['name']);
 //检测存放上传文件的路径是否存在，如果不存在则新建目录

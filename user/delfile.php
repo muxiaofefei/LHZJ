@@ -1,14 +1,24 @@
 <?php 
+
 include 'conn.php';
-$fid = $_GET['fid'];
+
+$data = $_POST['bh'];
+// print_r($data);
+// die;
+
 $kid = $_GET['kid'];
-$stmt = $pdo->query('select path from file_cx where Id ='.$fid); //返回一个PDOStatement对象
-$rows=$stmt->fetchAll(PDO::FETCH_BOTH);//既有索引键也有关联键
 
-// print_r($rows);die;
-unlink($rows[0]['path']);
+foreach ($data as $key => $value) {
 
-$count  =  $pdo->exec("delete from  file_cx where Id =".$fid); //返回受影响的行数
+	$stmt = $pdo->query('select path from file_cx where Id ='.$value); //返回一个PDOStatement对象
+	$rows=$stmt->fetchAll(PDO::FETCH_BOTH);//既有索引键也有关联键
+
+	// print_r($rows);die;
+	unlink($rows[0]['path']);
+
+	$count  =  $pdo->exec("delete from  file_cx where Id =".$value); //返回受影响的行数
+
+}
  ?>
 
 
