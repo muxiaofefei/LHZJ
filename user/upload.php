@@ -25,8 +25,8 @@ $rows=$stmt->fetchAll(PDO::FETCH_BOTH);//既有索引键也有关联键
 		<!-- enctype="mulipart/form-data"属性是指以二进制方式进行数据传输 
 		传输文件需要设置-->
 		<form action="upload_server.php?kid=<?=$kid?>" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="max_file_size" value="1048576">
-		<input type="file" name="file">
+		<!-- <input type="hidden" name="max_file_size" value="1048576"> -->
+		<input type="file" name="file[]" multiple>
 		<br>
 		<textarea name="notice"></textarea>
 		<br>
