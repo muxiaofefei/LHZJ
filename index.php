@@ -14,5 +14,7 @@
 <hr>
 <a href="user/userlist.php">用户列表</a>
 <hr>
+<a href="salary/index.php">工资记录</a>
+<hr>
 </body>
 </html>
